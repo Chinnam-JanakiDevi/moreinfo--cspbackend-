@@ -70,7 +70,7 @@ const signup = async (...Parameters) => {
       Message = "inserted successfully";
       break;
     case "Read":
-      sql = `select email,password from ${Parameters[0]} where email = '${Details}'`;
+      sql = `select * from ${Parameters[0]} where email = '${Details}'`;
       Message = `${Details} Retrived`
       break;
   }
@@ -86,7 +86,7 @@ const login = async (...Parameters) => {
   Details = Parameters[2];
   switch (Parameters[1]) {
     case "Read":
-      sql = `select email,password from ${Parameters[0]} where email = '${Details}'`;
+      sql = `select * from ${Parameters[0]} where email = '${Details}'`;
       Message = `${Details} Retrived`
       break;
   }
