@@ -110,8 +110,10 @@ const sellplant = async (...Parameters) => {
       Message = "Inserted Successfully";
       break;
     case "Read":
-      Sql = `select * from ${Parameters[0]} where p_id = '${Details}'`;
-      Message = `${Details} Retrived`
+      Sql = `select * from ${Parameters[0]}`;
+      if (Details != "All") {
+        Sql = `select * from ${Parameters[0]} where p_id = '${Details}'`;
+      }
       break;
     case "Update":
       Sql = `update ${Parameters[0]} set p_id = '${Parameters[3].p_id}',p_image = '${Parameters[3].p_image}',p_name= '${Parameters[3].p_name}',p_type= '${Parameters[3].p_type}',p_cost = '${Parameters[3].p_cost}' where p_id = '${Details}'`;
@@ -151,11 +153,31 @@ const contactus = async (...Parameters) => {
   result.Message = Message;
   return result;
 };
+
+const example = async (...Parameters) => {
+  let Sql, Message;
+  console.log(typeof (Parameters[2]));
+  Details = Parameters[2];
+  switch (Parameters[1]) {
+    case "Read":
+      Sql = `select * from ${Parameters[0]} where season= '${Details}'`;
+      Message = `${Details} Retrived`
+      break;
+    default:
+      console.error("Invalid Parameters");
+      break;
+  }
+  console.log(Sql);
+  var result = await Query(Sql);
+  result.Message = Message;
+  return result;
+};
 module.exports = {
   Result: Result,
   signup: signup,
   login: login,
   sellplant: sellplant,
-  contactus: contactus
+  contactus: contactus,
+  example: example
 };
 
