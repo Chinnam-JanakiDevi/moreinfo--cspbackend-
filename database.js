@@ -34,7 +34,7 @@ const Result = async (...Parameters) => {
   // }
   switch (Parameters[1]) {
     case "Insert":
-      Sql = `insert into ${Parameters[0]} values('${Details.soil_type}','${Details.ph_range}','${Details.sunlight}','${Details.watering}','${Details.fertilizer}','${Details.height}','${Details.plant_name}')`;
+      Sql = `insert into ${Parameters[0]} values('${Details.soil_type}','${Details.ph_range}','${Details.sunlight}','${Details.watering}','${Details.fertilizer}','${Details.height}','${Details.plant_name}','${Details.oxygen_level}','${Details.img_url}')`;
       Message = "Inserted Successfully";
       break;
     case "Read":
@@ -66,7 +66,7 @@ const signup = async (...Parameters) => {
   Details = Parameters[2];
   switch (Parameters[1]) {
     case "insert":
-      sql = `insert into ${Parameters[0]} values('${Details.name}','${Details.email}','${Details.password}')`;
+      sql = `insert into ${Parameters[0]} values('${Details.yourname}','${Details.email}','${Details.password}')`;
       Message = "inserted successfully";
       break;
     case "Read":
