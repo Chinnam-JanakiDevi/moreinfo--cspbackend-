@@ -112,15 +112,15 @@ const sellplant = async (...Parameters) => {
     case "Read":
       Sql = `select * from ${Parameters[0]}`;
       if (Details != "All") {
-        Sql = `select * from ${Parameters[0]} where p_id = '${Details}'`;
+        Sql = `select * from ${Parameters[0]} where p_i = '${Details}'`;
       }
       break;
     case "Update":
-      Sql = `update ${Parameters[0]} set p_id = '${Parameters[3].p_id}',p_image = '${Parameters[3].p_image}',p_name= '${Parameters[3].p_name}',p_type= '${Parameters[3].p_type}',p_cost = '${Parameters[3].p_cost}' where p_id = '${Details}'`;
+      Sql = `update ${Parameters[0]} set p_i = '${Parameters[3].p_id}',p_image = '${Parameters[3].p_image}',p_name= '${Parameters[3].p_name}',p_type= '${Parameters[3].p_type}',p_cost = ${Parameters[3].p_cost} where p_i = '${Details}'`;
       Message = `Succes Updating from details to reentered details`;
       break;
     case "Delete":
-      Sql = `delete from ${Parameters[0]} where p_id = '${Details}'`;
+      Sql = `delete from ${Parameters[0]} where p_i = '${Details}'`;
       Message = `Success deleting ${Details}`;
       break;
 
