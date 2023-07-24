@@ -27,6 +27,17 @@ Router.get("/Read:_ID", (req, res) => {
       res.send(err.message);
     });
 });
+Router.get("/sRead:_ID", (req, res) => {
+  const Details = req.params._ID;
+  sellplant.sellplant("flower", "Read1", Details)
+    .then((result) => {
+      res.send({ Message: result.Message, Result: result.rows });
+      console.log(result);
+    })
+    .catch((err) => {
+      res.send(err.message);
+    });
+});
 
 Router.delete("/Delete:id", (req, res) => {
   let Details = req.params.id;

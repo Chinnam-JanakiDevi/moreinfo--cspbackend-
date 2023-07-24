@@ -29,6 +29,8 @@ const Result = async (...Parameters) => {
   let Sql, Message;
   console.log(typeof (Parameters[2]));
   Details = Parameters[2];
+  console.log(Details);
+
   // if(typeof Parameters[2] === 'string') {
   //   Details = eval(`(${Parameters[2]})`); 
   // }
@@ -113,6 +115,14 @@ const sellplant = async (...Parameters) => {
       Sql = `select * from ${Parameters[0]}`;
       if (Details != "All") {
         Sql = `select * from ${Parameters[0]} where p_i = '${Details}'`;
+      }
+      break;
+    case "Read1":
+      Sql = `select * from ${Parameters[0]}`;
+      if (Details != "All") {
+        Sql = `select * from ${Parameters[0]} where p_name = '${Details}'`;
+        Message = `${Details} Retrived`
+
       }
       break;
     case "Update":
